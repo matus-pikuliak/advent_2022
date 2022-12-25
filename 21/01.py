@@ -8,13 +8,12 @@ s = lines['root']
 while to_replace := re.findall(r'[a-z]{4}', s):
     for t in to_replace:
         s = s.replace(t, f'({lines[t]})')
-print(eval(s))
+print(int(eval(s)))
 
 
 # Part 2
 lines['humn'] = 'X'
-lines['root'] = lines['root'].replace('+', '-')
-s = lines['root']
+s = lines['root'].replace('+', '-')
 while to_replace := re.findall(r'[a-z]{4}', s):
     for t in to_replace:
         s = s.replace(t, f'({lines[t]})')
