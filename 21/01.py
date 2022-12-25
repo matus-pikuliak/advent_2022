@@ -15,15 +15,8 @@ while to_replace := re.findall(r'[a-z]{4}', s):
         s = s.replace(t, f'({lines[t]})')
 
 
-l = 0
-h = 10**30
-while True:
-    x = (l + h) // 2
-    v = eval(s.replace('X', str(x)))
-    if v == 0:
-        print(x)
-        break
-    if v > 0:
-        l = x
-    if v < 0:
-        h = x
+b = [0, 10**30]
+while v := eval(s.replace('X', str(x := sum(b) // 2))):
+    b[v < 0] = x
+print(x)
+
